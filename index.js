@@ -23,6 +23,8 @@ function getRandomArbitrary(min, max) {
 
 }
 
+const antiAfk = require("."); // require("mineflayer-antiafk");
+
 bot.loadPlugin(cmd)
 
 
@@ -66,6 +68,8 @@ bot.on('time', function(time) {
 
 bot.on('spawn',function() {
     connected=1;
+    bot.loadPlugin(antiAfk);
+    bot.afk.start();
 });
 
 bot.on('death',function() {
